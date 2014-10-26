@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <vector>
+#include <iostream>
 // a structure to represent a weighted edge in graph
 struct Edge
 {
@@ -25,9 +26,17 @@ struct Graph
 // Creates a graph with V vertices and E edges
 struct Graph* createGraph(int V, int E)
 {	struct Graph* graph;
-	graph = (struct Graph*) malloc(sizeof(struct Graph));
+	//graph = (struct Graph*) malloc(sizeof(struct Graph));
+	graph =new Graph();
 	graph->V = V;
 	graph->E = E;
-	graph->edge = (struct egde*) malloc(graph->E*sizeof(struct Edge));
+	graph->edge =new Edge[graph->E];
+	//graph->edge = (struct Edge*) malloc(sizeof(struct Edge)*graph->E);
+	//std::cout<<sizeof(graph->edge)<<std::endl;
 	return graph;
+}
+
+int main(int argc, char * argv[]){
+	struct Graph* G = createGraph(5,5);
+	return 0;
 }
